@@ -1,1 +1,0 @@
-# Cloud Templates for STC Web Hosting
