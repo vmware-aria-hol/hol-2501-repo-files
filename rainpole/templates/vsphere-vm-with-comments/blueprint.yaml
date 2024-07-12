@@ -1,13 +1,13 @@
-# This shows different ways to enhance a cloud template via YAML with explanations of the various parameter attributes          *
-# There are comments throughout for your refernce.                                                                              *
-# If you are totally new to YAML, then you can visit https://yaml.org/ to get more familiar with it.                            *
-# References:                                                                                                                   *
-# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-86A64863-27AF-452B-A5CD-BC08ABF9E66A.html   *
-# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-12F0BC64-6391-4E5F-AA48-C5959024F3EB.html   *
-# There are some cloud template code examples here:
-# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-4717026E-D11A-48FE-93A9-E409A623C723.html   *
-# This cloud template will deploy 1 machine connected to a vSphere network and run scripts to configure access.                 *
-#********************************************************************************************************************************
+# This shows different ways to enhance a cloud template via YAML with explanations of the various parameter attributes          #
+# There are comments throughout for your reference.                                                                             #
+# If you are totally new to YAML, then you can visit https://yaml.org/ to get more familiar with it.                            #
+# References:                                                                                                                   #
+# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-86A64863-27AF-452B-A5CD-BC08ABF9E66A.html   #
+# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-12F0BC64-6391-4E5F-AA48-C5959024F3EB.html   #
+# There are some cloud template code examples here:                                                                             #
+# https://docs.vmware.com/en/VMware-Cloud-Assembly/services/Using-and-Managing/GUID-4717026E-D11A-48FE-93A9-E409A623C723.html   #
+# This cloud template will deploy 1 machine connected to a vSphere network and run scripts to configure access.                 #
+#################################################################################################################################
 # Don't forget to give your cloud template a useful name!
 name: vSphere VM with Comments
 version: 1.0.0
@@ -25,14 +25,14 @@ inputs:
   password:
     type: string
     title: Password
-    default: VMware1!
+    default: VMware123!
     encrypted: true
     description: Password for the given username
 resources:
   demo-machine:
     type: Cloud.vSphere.Machine
     properties:
-      image: Ubuntu22
+      image: ubuntu22
       flavor: small
       cloudConfig: |
         ssh_pwauth: yes

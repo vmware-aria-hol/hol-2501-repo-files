@@ -6,7 +6,7 @@ resources:
   ubuntu:
     type: Cloud.vSphere.Machine
     properties:
-      image: Ubuntu22
+      image: ubuntu22
       flavor: small
       constraints:
         - tag: 'cloud:vsphere'
