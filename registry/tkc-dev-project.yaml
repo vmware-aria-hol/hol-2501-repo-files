@@ -1,0 +1,32 @@
+apiVersion: run.tanzu.vmware.com/v1alpha3
+kind: TanzuKubernetesCluster
+metadata:
+  name: dev-project
+  namespace: rainpole
+spec:
+  topology:
+    controlPlane:
+      replicas: 1
+      vmClass: best-effort-small
+      storageClass: wld-cluster-01-vsan-storage-policy
+      tkr:
+        reference:
+#          name: v1.23.8---vmware.2-tkg.2-zshippable
+           name: v1.26.12---vmware.2-fips.1-tkg.2
+    nodePools:
+    - replicas: 1
+      name: worker
+      vmClass: best-effort-small
+      storageClass: wld-cluster-01-vsan-storage-policy
+  settings:
+    storage:
+      defaultClass: wld-cluster-01-vsan-storage-policy
+    network:
+      trust:
+          additionalTrustedCAs:
+          - name: hol-ca
+            data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURpVENDQW5HZ0F3SUJBZ0lRVXp3UFZMVVRMcjFHZ21lSWNweWRiekFOQmdrcWhraUc5dzBCQVFzRkFEQlgKTVJNd0VRWUtDWkltaVpQeUxHUUJHUllEYkdGaU1SUXdFZ1lLQ1pJbWlaUHlMR1FCR1JZRWFHOXNiekVUTUJFRwpDZ21TSm9tVDhpeGtBUmtXQTNaalpqRVZNQk1HQTFVRUF4TU1kbU5tTFZaRFJrRkVMVU5CTUI0WERUSTBNRE13Ck1URTRNRGcwTlZvWERUSTVNRE13TVRFNE1UZzBOVm93VnpFVE1CRUdDZ21TSm9tVDhpeGtBUmtXQTJ4aFlqRVUKTUJJR0NnbVNKb21UOGl4a0FSa1dCR2h2Ykc4eEV6QVJCZ29Ka2lhSmsvSXNaQUVaRmdOMlkyWXhGVEFUQmdOVgpCQU1UREhaalppMVdRMFpCUkMxRFFUQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCCkFOblI2L2d0cExVNWhURk0rVkRHcHR4UWJKalZFRGR6eXNSMXo5RjNkcTNuYTlEczNEQWtYLzZYSGJrOTZvTjgKbGhicHJQTjlQOEsvZFBPNWtvckJRNDBXUmFhamhlcTQ3T2VFUlVId2ZKSXpacVhvdmtrYnBYTkZZQnNtem5sWgpvbklQS0g5aVlHNkUxSXFnZDROM01GY2VJeHVCVTk3TWFIenpPSUFQbW1tenBLMVZDSTByTDBXOG8zdjB2clF2CjZpbGs4eUdrcVlKSC8yZy93NFN5L1ZQam9zQzVQeVVpMEw5ZGZZb2g1d0xTQjJjWVhsUk5aV0g2QVJEb3ROTmoKa2E0VmxlMGRiR0k3NXRmc2ZOV1B5Y1c0dlNZU1Z5SWNXME9NZFhIZzdMa0hReWNXRFZMbllPYTRuV0Fscmp4cApVejZxU1RsUjI3cUpFMjFOOGNLSUgwa0NBd0VBQWFOUk1FOHdDd1lEVlIwUEJBUURBZ0dHTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZGNHJhM0k2Z29JeG1yZXh2b3NLekpzaFM3MzVNQkFHQ1NzR0FRUUIKZ2pjVkFRUURBZ0VBTUEwR0NTcUdTSWIzRFFFQkN3VUFBNElCQVFCUVRzZTlBZUtSM290cTU5S2Fjcm56ZUpVYgpXKzFsVVEvM3F3dEErQVNlc2NXaGUyeDFRYnJVeks1WFhRNmlJVUo2RzA4bktURTQyWE15eXJybkppOHpPTTMzCmU5SWlyMXp4UWFSZWFFZ0xBQ2p3aFpPR00wOXM5R1h3Yk1oWXhmTDlTUkkrZE9YU2pVTVlqazZnNFRNRE5HcloKRis5Z0ZIYkZpYStSaE91NW1uYnhqNmIvV2dCNUxldEt3UndaT0V1QnZDVWxyVkxTeFFGVm8xZHZGeXpUOHFCTwo4RXcvanE5TXRqZDR2OGRDY2t5RWV3dFpMQlZQbG1RZnFvUFdSZWdCRUw2ZHIwNE5PREVLSlZDS09zelFKMWl3Cms3S1hDbW1MSHdKcEY5VDhGVW9leldtRFNObkdVcitXQXU4U0xPVXlreVBqT0I0dmpUbWRVcXJkdGQrZgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+      proxy:
+        httpProxy: http://10.0.100.1:3128
+        httpsProxy: http://10.0.100.1:3128
+        noProxy: [ localhost,127.0.0.0/8,100.64.0.0/10,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.cluster.local,.cluster.local.,.vcf.sddc.lab,.vcf.sddc.lab:443 ]

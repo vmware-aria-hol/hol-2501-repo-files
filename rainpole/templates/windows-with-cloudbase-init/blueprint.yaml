@@ -1,5 +1,5 @@
 name: Windows with cloudbase-init
-version: 1.0.0
+version: 1.0.1
 formatVersion: 1
 inputs: {}
 resources:
@@ -22,7 +22,7 @@ resources:
           $adapter | Remove-NetIpAddress -Confirm:$false
           $adapter | Remove-NetRoute -Confirm:$false
           $adapter | New-NetIpAddress -IPAddress ${resource.windows.networks.address[0]} -PrefixLength ${resource.Cloud_vSphere_Network_1.prefixLength} -DefaultGateway ${resource.windows.networks.gateway[0]}
-          $adapter | Set-DnsClientServerAddress -ServerAddresses ${replace(replace(to_string(resource.windows.networks.dns[0]),"]",")"),"[","(")}
+          $adapter | Set-DnsClientServerAddress -ServerAddresses ("10.0.0.221", "10.0.0.2")
           
           Set-DnsClientGlobalSetting -SuffixSearchList "vcf.sddc.lab"
           
