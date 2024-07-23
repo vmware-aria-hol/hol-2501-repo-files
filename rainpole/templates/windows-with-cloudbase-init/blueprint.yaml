@@ -1,5 +1,5 @@
 name: Windows with cloudbase-init
-version: 1.0.1
+version: 1.0.2
 formatVersion: 1
 inputs: {}
 resources:
@@ -9,6 +9,8 @@ resources:
       image: Windows2022
       flavor: large
       customizeGuestOs: false
+      registerDns: true
+      dnsDomain: vcf.sddc.lab
       remoteAccess:
         authentication: usernamePassword
         username: Administrator
@@ -22,7 +24,7 @@ resources:
           $adapter | Remove-NetIpAddress -Confirm:$false
           $adapter | Remove-NetRoute -Confirm:$false
           $adapter | New-NetIpAddress -IPAddress ${resource.windows.networks.address[0]} -PrefixLength ${resource.Cloud_vSphere_Network_1.prefixLength} -DefaultGateway ${resource.windows.networks.gateway[0]}
-          $adapter | Set-DnsClientServerAddress -ServerAddresses ("10.0.0.221", "10.0.0.2")
+          $adapter | Set-DnsClientServerAddress -ServerAddresses ("10.0.0.2")
           
           Set-DnsClientGlobalSetting -SuffixSearchList "vcf.sddc.lab"
           
