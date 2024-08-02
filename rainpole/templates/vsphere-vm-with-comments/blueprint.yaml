@@ -52,7 +52,7 @@ resources:
           - sh -c ${'\'echo \"Welcome to Hands-On Labs!  This machine was requested by ' + env.requestedBy + '\\n\\n\" > /etc/motd\''}
           
       networks:
-        - network: '${resource.Cloud_vSphere_Network_1.id}'
+        - network: ${resource.Cloud_vSphere_Network_1.id}
           assignment: static
   Cloud_vSphere_Network_1:
     type: Cloud.vSphere.Network
