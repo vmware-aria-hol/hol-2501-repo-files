@@ -9,7 +9,6 @@ resources:
       image: Windows2022
       flavor: large
       customizeGuestOs: false
-      registerDns: true
       dnsDomain: vcf.sddc.lab
       remoteAccess:
         authentication: usernamePassword
