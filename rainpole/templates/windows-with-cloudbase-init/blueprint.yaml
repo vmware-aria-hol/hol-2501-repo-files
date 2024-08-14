@@ -9,7 +9,6 @@ resources:
       image: Windows2022
       flavor: large
       customizeGuestOs: false
-      dnsDomain: vcf.sddc.lab
       remoteAccess:
         authentication: usernamePassword
         username: Administrator
@@ -36,6 +35,7 @@ resources:
       networks:
         - network: "${resource.Cloud_vSphere_Network_1.id}"
           assignment: static
+      dnsDomain: vcf.sddc.lab
   Cloud_vSphere_Network_1:
     type: Cloud.vSphere.Network
     properties:

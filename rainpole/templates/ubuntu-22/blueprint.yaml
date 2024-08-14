@@ -13,6 +13,7 @@ resources:
       networks:
         - network: '${resource.vsphere_network.id}'
           assignment: static
+      dnsDomain: vcf.sddc.lab
   vsphere_network:
     type: Cloud.vSphere.Network
     properties:
