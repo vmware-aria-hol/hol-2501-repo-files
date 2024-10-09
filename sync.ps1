@@ -14,3 +14,4 @@ Get-ChildItem -path ".\gitlab" -Directory -Force | ForEach-Object {
 	Invoke-Command -ScriptBlock { git commit -m "$(Get-Date) Refresh" }
 	Invoke-Command -ScriptBlock { git push -f -u origin main }
 }
+
