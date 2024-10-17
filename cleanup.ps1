@@ -8,13 +8,13 @@ Get-ChildItem -path "c:\gitlab" -Recurse -Filter ".gitignore" | Remove-Item -For
 Get-ChildItem -path "c:\gitlab" -Recurse -Filter "README.md" | Remove-Item -Force -Recurse
 
 
-$versionInfo = @"
-v0.21 
-HOL 2501 CMP vPod 
-2024/08/16 
-"@
+#$versionInfo = @"
+#v0.21 
+#HOL 2501 CMP vPod 
+#2024/08/16 
+#"@
 
-If (Test-Path -Path "c:\hol\version.txt" ) {
-    Remove-Item "c:\hol\version.txt" -Force
-    New-Item "c:\hol\version.txt" -ItemType File -Value $versionInfo
-}
+#If (Test-Path -Path "c:\hol\version.txt" ) {
+#    Remove-Item "c:\hol\version.txt" -Force
+#    New-Item "c:\hol\version.txt" -ItemType File -Value $versionInfo
+#}
